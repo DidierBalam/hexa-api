@@ -2,15 +2,11 @@
   "name": "api-hexa",
   "version": "1.0.0",
   "description": "",
-  "main": "functions/server.js",
+  "main": "index.js",
   "scripts": {
-    "build": "netlify-lambda build src",
-    "start": "nodemon server-local.js"
+    "start": "node index.js"
   },
-  "keywords": [
-    "netlify",
-    "express.js"
-  ],
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
