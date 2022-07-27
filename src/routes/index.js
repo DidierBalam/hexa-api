@@ -3,11 +3,12 @@ const router = express.Router()
 
 // const mayoralties1 = require('../database/mayoralties1.json')
 // const mayoralties2 = require('../database/mayoralties02.json')
-// const states = require('../database/states.json')
+
 
 router.route('/states').get((_, res) => {
   try {
-    res.send('hola')
+    const states = require('../database/states.json')
+    res.send(states)
   } catch (err) {
     console.log(err)
     res.send(err)
