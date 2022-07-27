@@ -1,12 +1,26 @@
-const express = require("express");
-const serverless = require("serverless-http");
-const bodyParser = require('body-parser')
+// const express = require("express");
+// const serverless = require("serverless-http");
+// const bodyParser = require('body-parser')
+// const router = require('./routes')
+
+// const app = express();
+// app.use(bodyParser.json());
+
+// // app.use(`/.netlify/functions/server`, router);
+
+// module.exports = app;
+// // module.exports.handler = serverless(app);
+
+const express = require('express')
 const router = require('./routes')
 
-const app = express();
-app.use(bodyParser.json());
+const PORT = 8080
 
-app.use(`/.netlify/functions/server`, router);
+const app = express()
 
-module.exports = app;
-module.exports.handler = serverless(app);
+app.use(express.json({ extended: false }));
+app.use('/api', router)
+
+app.listen(PORT, () => {
+    console.log('Servidor corriendo en el puerto', PORT)
+})
