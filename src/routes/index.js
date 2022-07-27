@@ -5,12 +5,19 @@ const router = express.Router()
 // const mayoralties2 = require('../database/mayoralties02.json')
 
 
-router.route('/states').get((_, res) => {
+router.route(`/states/:page`).get((_, res) => {
   try {
+    const { page } = req.params
+
     const states = require('../database/states.json')
-    const count = states.features.length / 10
-    console.log(count)
-    res.send(states.features.slice(0,count))
+    const count = parseInt(page)
+
+    const init = 3 * (page - 1)
+    const last = 3 * count
+
+    console.log(init, last)
+
+    res.send(states.features.slice(init,last))
   } catch (err) {
     console.log(err)
     res.send(err)
