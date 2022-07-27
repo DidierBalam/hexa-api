@@ -8,7 +8,7 @@ const router = express.Router()
 router.route('/states').get((_, res) => {
   try {
     const states = require('../database/states.json')
-    const count = states.features.length / 3
+    const count = states.features.length / 4
     res.send(states.features.slice(0,count))
   } catch (err) {
     console.log(err)
