@@ -2,7 +2,7 @@
   "name": "api-hexa",
   "version": "1.0.0",
   "description": "",
-  "main": "functions/server.js",
+  "main": "./src/server.js",
   "scripts": {
     "start": "node ./src/server.js"
   },
