@@ -1,9 +1,20 @@
 const express = require('express')
-const router = require('./src/routes')
 
 const PORT = 8080
 
 const app = express()
+
+const router = express.Router()
+
+router.route('/states').get((_, res) => {
+  const states = require('./src/database/states.json')
+  try {
+    res.send(states)
+  } catch (err) {
+    console.log(err)
+    res.send(err)
+  }
+})
 
 app.use('/api', router)
 
