@@ -5,7 +5,7 @@ const router = express.Router()
 // const mayoralties2 = require('../database/mayoralties02.json')
 
 
-router.route(`/states/:page`).get((_, res) => {
+router.route(`/states/:page`).get((req, res) => {
   try {
     const { page } = req.params
 
@@ -15,7 +15,7 @@ router.route(`/states/:page`).get((_, res) => {
     const init = 3 * (page - 1)
     const last = 3 * count
 
-    console.log(init, last)
+    console.log('position', init, last)
 
     res.send(states.features.slice(init,last))
   } catch (err) {
