@@ -1,14 +1,14 @@
 const express = require('express')
 const router = express.Router()
 
-const dbo = require('../db/conn');
+const connectToDatabase = require('../db/conn');
 
-router.route('/states/:page').get((req, res) => {
+router.route('/states/:page').get( async (req, res) => {
   try {
     const { page } = req.params
     console.log('buscando', page)
-    let db_connect = dbo.getDb()
     const skip = 3 * (parseInt(page) - 1)
+    let { db_connect } = await connectToDatabase()
     db_connect
       .collection("states")
       .find({})

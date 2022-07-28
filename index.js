@@ -13,9 +13,9 @@ app.use(express.json());
 app.use('/api', router)
 
 app.listen(PORT, () => {
-    dbo.connectToServer(function (err) {
-        if (err) console.error(err);
-    });
+    // dbo.connectToServer(function (err) {
+    //     if (err) console.error(err);
+    // });
     console.log('Servidor corriendo en el puerto', PORT)
 })
 
