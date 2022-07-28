@@ -2,10 +2,10 @@
 'use strict';
 
 const express = require('express')
-const router = require('./routes/index')
 const cors = require('cors')
 const bodyParser = require('body-parser');
 const serverless = require('serverless-http');
+const router = require('../routes/index')
 
 const app = express()
 

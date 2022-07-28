@@ -2,7 +2,7 @@
 require('dotenv').config({ path: './config.env' })
 
 const dbo = require('./db/conn')
-const app = require('./server');
+const app = require('./express/server');
 
 const PORT = 4000
 
