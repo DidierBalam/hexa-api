@@ -13,11 +13,11 @@ router.route('/states/:page').get(async (req, res) => {
       .collection("states")
       .find({})
       .skip(skip)
-      .limit(3)
+      .limit(1)
       .toArray()
-      
+
     client.close()
-    return res.send(states)
+    res.send(states)
   } catch (err) {
     console.log(err)
     res.send(err)
