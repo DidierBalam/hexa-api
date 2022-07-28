@@ -1,24 +1,24 @@
 const { MongoClient } = require("mongodb");
-const URI = process.env.ATLAS_URI;
-
 // const client = new MongoClient(URI, { useNewUrlParser: true, useUnifiedTopology: true })
 
 // let dbConnection;
 
 module.exports = {
-    connectToServer: function (callback) {
-        client.connect((err, db) => {
-            if (err || !db) {
-                return callback(err);
-            }
-            dbConnection = db.db("hexa")
-            console.log("Successfully connected to MongoDB.");
+    // connectToServer: function (callback) {
+    //     client.connect((err, db) => {
+    //         if (err || !db) {
+    //             return callback(err);
+    //         }
+    //         dbConnection = db.db("hexa")
+    //         console.log("Successfully connected to MongoDB.");
 
-            return callback();
-        });
-    },
+    //         return callback();
+    //     });
+    // },
 
     getDb: async function () {
+        const URI = process.env.ATLAS_URI
+
         const opts = {
             useNewUrlParser: true,
             useUnifiedTopology: true,
@@ -33,4 +33,4 @@ module.exports = {
             db_connect: db
         }
     },
-};
+}
