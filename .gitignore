@@ -23,5 +23,5 @@
 # misc
 .DS_Store
 *.pem
+
 functions
-node_modules
