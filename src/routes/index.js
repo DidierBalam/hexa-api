@@ -23,11 +23,11 @@ router.route(`/states/:page`).get((req, res) => {
 router.route('/mayoralties/:id').get((req, res) => {
   try {
     const { id } = req.params
-    // const mayoralties1 = require('../database/mayoralties1.json')
-    // const mayoralties2 = require('../database/mayoralties02.json')
-    // const features = mayoralties1.features.concat(mayoralties2.features)
-    // const filter = features.filter(data => data.properties.CVE_ENT === id)
-    res.send('hola')
+    const mayoralties1 = require('../database/mayoralties1.json')
+    const mayoralties2 = require('../database/mayoralties02.json')
+    const features = mayoralties1.features.concat(mayoralties2.features)
+    const filter = features.filter(data => data.properties.CVE_ENT === id)
+    res.send(filter)
   } catch (err) {
     console.log(err)
     res.send(err)
