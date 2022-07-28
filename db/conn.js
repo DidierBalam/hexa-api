@@ -1,4 +1,4 @@
-const { MongoClient } = require("mongodb");
+const mongo = require("mongodb");
 // const client = new MongoClient(URI, { useNewUrlParser: true, useUnifiedTopology: true })
 
 // let dbConnection;
@@ -24,7 +24,7 @@ module.exports = {
             useUnifiedTopology: true,
         };
 
-        let client = new MongoClient(URI, opts);
+        let client = new mongo.MongoClient(URI, opts);
         await client.connect();
         let db = client.db('hexa');
         

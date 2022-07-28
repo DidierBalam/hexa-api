@@ -3,7 +3,7 @@ require('dotenv').config({ path: './config.env' })
 const express = require('express')
 const router = require('./routes/index')
 const cors = require('cors')
-const dbo = require('./db/conn')
+// const dbo = require('./db/conn')
 
 const PORT = 4000
 const app = express()
