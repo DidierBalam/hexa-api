@@ -1,5 +1,5 @@
 const { MongoClient, ServerApiVersion } = require("mongodb");
-const URI = process.env.ATLAS_URI;
+const URI = 'mongodb+srv://didierbalam:didier12345@serverlessinstance0.dobv8.mongodb.net/?retryWrites=true&w=majority';
 
 const client = new MongoClient(URI,
     {
