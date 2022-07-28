@@ -3,17 +3,18 @@ const router = express.Router()
 
 router.route(`/states/:page`).get((req, res) => {
   try {
-    const { page } = req.params
+    // const { page } = req.params
 
-    const states = require('../database/states.json')
-    const count = parseInt(page)
+    // const states = require('../database/states.json')
+    // const count = parseInt(page)
 
-    const init = 3 * (page - 1)
-    const last = 3 * count
+    // const init = 3 * (page - 1)
+    // const last = 3 * count
 
-    console.log('position', init, last)
+    // console.log('position', init, last)
 
-    res.send(states.features.slice(init, last))
+    // res.send(states.features.slice(init, last))
+    res.send('naada')
   } catch (err) {
     console.log(err)
     res.send(err)
