@@ -22,5 +22,11 @@ app.use('/.netlify/functions/server', router)
 //     });
 //     console.log('Servidor corriendo en el puerto', PORT)
 // })
+const dbo = require('../db/conn')
+
+dbo.connectToServer(function (err) {
+    if (err) console.error(err);
+});
+
 module.exports = app;
 module.exports.handler = serverless(app);
