@@ -1,24 +1,23 @@
 const express = require('express')
 const router = express.Router()
 
-const connectToDatabase = require('../db/conn');
+const dbo = require('../db/conn');
 
-router.route('/states/:page').get( async (req, res) => {
+router.route('/states/:page').get(async (req, res) => {
   try {
     const { page } = req.params
-    console.log('buscando', page)
+    const { db_connect, client } = await dbo.getDb()
     const skip = 3 * (parseInt(page) - 1)
-    let { db_connect } = await connectToDatabase()
-    db_connect
+
+    const states = await db_connect
       .collection("states")
       .find({})
       .skip(skip)
       .limit(3)
-      .toArray(function (err, result) {
-        if (err) throw err;
-        console.log('resolviendo')
-        res.json(result);
-      });
+      .toArray()
+      
+    client.close()
+    return res.send(states)
   } catch (err) {
     console.log(err)
     res.send(err)
